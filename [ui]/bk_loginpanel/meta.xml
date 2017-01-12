@@ -1,0 +1,10 @@
+<meta>
+    <oop>true</oop>
+
+    <script type="client" src="client/utils.lua"/>
+    <script type="client" src="client/login_panel.lua"/>
+    <script type="client" src="client/register_panel.lua"/>
+    <script type="client" src="client/main.lua"/>
+
+    <file src="assets/background.png"/>
+</meta>
