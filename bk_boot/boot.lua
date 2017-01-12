@@ -1,0 +1,49 @@
+-- Порядок запуска ресурсов
+local bootResources = {
+    "bk_core",
+}
+
+local function processResourceByName(name, action)
+    local resource = getResourceFromName(name)
+    if not resource then
+        return false
+    end
+    if action == "start" then
+        startResource(resource)
+        return resource.state == "running"
+    elseif action == "stop" then
+        return stopResource(resource)
+    else
+        error("Unknown action '" .. tostring(action) .. "'")
+    end
+end
+
+function startResources()
+    outputDebugString("Starting " .. tostring(bootResources) .. " resource(s)...")
+    -- Счётчик успешно запущенных ресурсов
+    local counter = 0
+    for i, name in ipairs(bootResources) do
+        if processResourceByName(name, "start") then
+            counter = counter + 1
+        else
+            outputDebugString("Boot: failed to start '" .. tostring(name) .. "'")
+        end
+    end
+    local failedWarning = ""
+    -- Если не все ресурсы удалось запустить
+    if counter < #bootResources then
+        failedWarning = "Failed to start " .. tostring(#bootResources - counter) .. " resource(s)."
+    end
+    outputDebugString("Done. " .. failedWarning)
+end
+
+function stopResources()
+    outputDebugString("Stopping gamemode...")
+    for i, name in ipairs(bootResources) do
+        processResourceByName(name, "stop")
+    end
+    outputDebugString("Done.")
+end
+
+addEventHandler("onResourceStart", resourceRoot, startResources)
+addEventHandler("onResourceStop", resourceRoot, stopResources)
