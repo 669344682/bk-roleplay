@@ -1,3 +1,12 @@
 <meta>
     <oop>true</oop>
+
+    <!-- Клиент -->
+    <script type="client" src="client/auth.lua"/>
+
+    <export type="client" function="login"/>
+    <export type="client" function="register"/>
+
+    <!-- Сервер -->
+    <script type="server" src="server/auth.lua"/>
 </meta>

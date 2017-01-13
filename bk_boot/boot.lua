@@ -1,6 +1,14 @@
 -- Порядок запуска ресурсов
 local bootResources = {
     "bk_core",
+    "bk_playerspawn",
+
+    "bk_ui",
+    "bk_hud",
+    "bk_alert",
+    "bk_loginpanel",
+
+    "speedometer"
 }
 
 local function processResourceByName(name, action)
@@ -19,7 +27,7 @@ local function processResourceByName(name, action)
 end
 
 function startResources()
-    outputDebugString("Starting " .. tostring(bootResources) .. " resource(s)...")
+    outputDebugString("Starting " .. tostring(#bootResources) .. " resource(s)...")
     -- Счётчик успешно запущенных ресурсов
     local counter = 0
     for i, name in ipairs(bootResources) do
@@ -39,8 +47,8 @@ end
 
 function stopResources()
     outputDebugString("Stopping gamemode...")
-    for i, name in ipairs(bootResources) do
-        processResourceByName(name, "stop")
+    for i = #bootResources, 1, -1 do
+        processResourceByName(bootResources[i], "stop")
     end
     outputDebugString("Done.")
 end

@@ -12,7 +12,7 @@ function showPanel()
     isVisible = true
 
     UI:setVisible(panels.login.window, true)
-    showChat(false)
+    exports["bk_hud"]:setVisible(false)
     showCursor(true)
 
     background.image = dxCreateTexture("assets/background.png")
@@ -42,4 +42,21 @@ function hidePanel()
     background = {}
 end
 
-addEventHandler("onClientResourceStart", resourceRoot, showPanel)
+addEventHandler("onClientResourceStart", resourceRoot, function ()
+    if not localPlayer:getData("username") then
+        showPanel()
+    end
+end)
+
+addEvent("bkLogin", true)
+addEventHandler("bkLogin", localPlayer, function (success, errorType)
+    if success then
+        hidePanel()
+        return
+    end
+
+    outputDebugString("ERROR: " .. tostring(errorType))
+    if errorType then
+
+    end
+end)

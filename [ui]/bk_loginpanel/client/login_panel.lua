@@ -18,7 +18,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function ()
     -- Логин
     UI:createLabel(10, y, PANEL_WIDTH, 20, panel.window, "Логин")
     y = y + 25
-    panel.loginEdit = UI:createEdit(10, y, PANEL_WIDTH - 20, 35, panel.window, "")
+    panel.usernameEdit = UI:createEdit(10, y, PANEL_WIDTH - 20, 35, panel.window, "")
 
     -- Пароль
     y = y + 45
@@ -31,7 +31,7 @@ addEventHandler("onClientResourceStart", resourceRoot, function ()
     y = y + 50
     local buttonSpacing = 7
     local buttonWidth = (PANEL_WIDTH - 20) / 2 - buttonSpacing
-    UI:createButton(10, y, buttonWidth, 35, panel.window, "Войти")
+    panel.loginButton = UI:createButton(10, y, buttonWidth, 35, panel.window, "Войти")
     panel.registerButton = UI:createButton(10 + buttonWidth + buttonSpacing * 2, y, buttonWidth, 35, panel.window, "Регистрация")
 
     UI:setVisible(panel.window, false)
@@ -44,5 +44,9 @@ addEventHandler("onClientResourceStart", resourceRoot, function ()
     addEventHandler("onLuckyGUIClick", UI:getSource(panel.registerButton), function ()
         UI:setVisible(panels.login.window, false)
         UI:setVisible(panels.register.window, true)
+    end)
+
+    addEventHandler("onLuckyGUIClick", UI:getSource(panel.loginButton), function ()
+        exports["bk_core"]:login(UI:getText(panel.usernameEdit), UI:getText(panel.passwordEdit))
     end)
 end)
