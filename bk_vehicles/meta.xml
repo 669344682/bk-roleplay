@@ -1,6 +1,9 @@
 <meta>
     <oop>true</oop>
 
+    <script type="shared" src="shared/vehicles_list"/>
+    
+    <script type="server" src="server/utils.lua"/>
     <script type="server" src="server/main.lua"/>
     <script type="server" src="server/data.lua"/>
     <script type="server" src="server/spawn.lua"/>

@@ -9,4 +9,8 @@
 
     <!-- Сервер -->
     <script type="server" src="server/auth.lua"/>
+
+
+    <export type="server" function="getPlayerInventory"/>
+    <export type="server" function="setPlayerInventory"/>
 </meta>
