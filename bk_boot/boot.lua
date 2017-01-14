@@ -1,7 +1,10 @@
 -- Порядок запуска ресурсов
 local bootResources = {
     "bk_core",
+    "bk_dimensions",
     "bk_playerspawn",
+    "bk_vehicles",
+    "bk_carshop",
 
     "bk_ui",
     "bk_hud",

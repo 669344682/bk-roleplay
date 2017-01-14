@@ -1,6 +1,7 @@
 local accountDataToLoad = {
     money = 0,
     xp    = 1,
+    skin  = 0
 }
 
 local accountDataToSave = {

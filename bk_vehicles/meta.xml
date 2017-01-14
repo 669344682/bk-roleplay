@@ -1,7 +1,7 @@
 <meta>
     <oop>true</oop>
 
-    <script type="shared" src="shared/vehicles_list"/>
+    <script type="shared" src="shared/vehicles_list.lua"/>
     
     <script type="server" src="server/utils.lua"/>
     <script type="server" src="server/main.lua"/>

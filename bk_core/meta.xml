@@ -9,6 +9,8 @@
 
     <!-- Сервер -->
     <script type="server" src="server/auth.lua"/>
+    <script type="server" src="server/inventory.lua"/>
+    <script type="server" src="server/player_id.lua"/>
 
 
     <export type="server" function="getPlayerInventory"/>

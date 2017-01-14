@@ -1,0 +1,9 @@
+<meta>
+    <oop>true</oop>
+
+    <script type="shared" src="shared/CarshopsList.lua"/>
+
+    <script type="client" src="client/markers.lua"/>
+    <script type="client" src="client/carshop.lua"/>
+    <script type="client" src="client/vehicle_preview.lua"/>
+</meta>
