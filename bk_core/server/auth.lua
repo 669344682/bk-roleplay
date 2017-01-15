@@ -21,8 +21,10 @@ function loadAccountData(player, account)
     -- Загрузка даты
     for name, defaultValue in pairs(accountDataToLoad) do
         local value = account:getData(name)
-        if value == nil then
+        if not value then
             value = defaultValue
+        else
+            value = tonumber(value)
         end
         player:setData(name, value)
     end

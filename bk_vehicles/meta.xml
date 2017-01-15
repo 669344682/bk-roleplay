@@ -1,10 +1,25 @@
 <meta>
     <oop>true</oop>
 
+    <!-- Shared -->
     <script type="shared" src="shared/vehicles_list.lua"/>
-    
+
+    <export type="shared" function="getVehiclesList"/>
+    <export type="shared" function="getModelFromName"/>
+    <export type="shared" function="getNameFromModel"/>    
+        
+    <!-- Server -->
     <script type="server" src="server/utils.lua"/>
     <script type="server" src="server/main.lua"/>
     <script type="server" src="server/data.lua"/>
     <script type="server" src="server/spawn.lua"/>
+
+    <export type="server" function="addVehicle"/>
+    <export type="server" function="removeVehicle"/>
+    <export type="server" function="transferVehicle"/>
+    <export type="server" function="getAccountVehicles"/>
+
+    <export type="server" function="spawnVehicle"/>
+
+    <!-- Client -->
 </meta>

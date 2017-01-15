@@ -1,7 +1,7 @@
 local defaultVehicleData = {
     -- Основное
-    Name            = nil, -- Название машины
-    Mileage         = 0,   -- Пробег
+    name            = nil, -- Название машины
+    mileage         = 0,   -- Пробег
 
     -- Цвета
     BodyColor       = {255, 255, 255}, -- Кузов
@@ -31,16 +31,20 @@ function getNewVehicleData(extendData)
         return false
     end
     -- Название должно быть обязательно указано
-    if not extendData.Name then
+    if not extendData.name then
+        return false
+    end
+    -- Если автомобиля не существует
+    if not getModelFromName(extendData.name) then
         return false
     end
 
     local data = {}
     for name, defaultValue in pairs(defaultVehicleData) do
         data[name] = defaultValue
-        if extendData[name] ~= nil then
-            data[name] = extendData[name]
-        end
+    end
+    for name, value in pairs(extendData) do
+        data[name] = value
     end
     return data
 end

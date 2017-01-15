@@ -1,7 +1,7 @@
 local currentPrivateDimension = 1000 
 
 addEvent("bkEnterPrivateDimension", true)
-addEventHandler("bkEnterPrivateDimension", resourceRoot, function (name)
+addEventHandler("bkEnterPrivateDimension", resourceRoot, function (name, ...)
     if client:getData("activeDimensionName") then
         return
     end
@@ -13,11 +13,11 @@ addEventHandler("bkEnterPrivateDimension", resourceRoot, function (name)
     client.dimension = 1000 + playerId
     client:setData("activeDimensionName", name)
 
-    triggerClientEvent(client, "bkEnter" .. name, client)
+    triggerClientEvent(client, "bkEnter" .. name, client, ...)
 end)
 
 addEvent("bkExitPrivateDimension", true)
-addEventHandler("bkExitPrivateDimension", resourceRoot, function ()
+addEventHandler("bkExitPrivateDimension", resourceRoot, function (...)
     local activeDimensionName = client:getData("activeDimensionName")
     if not activeDimensionName then
         return
@@ -25,7 +25,7 @@ addEventHandler("bkExitPrivateDimension", resourceRoot, function ()
 
     client.dimension = 0
     client:removeData("activeDimensionName")
-    triggerClientEvent(client, "bkExit" .. activeDimensionName, client)
+    triggerClientEvent(client, "bkExit" .. activeDimensionName, client, ...)
 end)    
 
 addEventHandler("onResourceStart", resourceRoot, function ()

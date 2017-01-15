@@ -1,14 +1,20 @@
 -- Добавление автомобиля в аккаунт
 function addVehicle(account, name)
     if not checkAccount(account) then
-        return false
+        return false, "not_logged_in"
     end
 
-    local data = getNewVehicleData({Name = name})
+    local data = getNewVehicleData({name = name})
+    if not data then
+        return false, "bad_vehicle_data"
+    end
     local vehicles = getAccountVehicles(account)
     local id = insertVehicleData(vehicles, data)
+    if not id then
+        return false, "failed_to_add"
+    end
     if not setAccountVehicles(account, vehicles) then
-        return false
+        return false, "account_save_error"
     end
     return id, vehicles
 end
@@ -28,6 +34,9 @@ function removeVehicle(account, id)
     if id > #vehicles then
         return false
     end
+    if not vehicles[id] then
+        return false
+    end
     if id == #vehicles then
         table.remove(vehicles, id)
     else
@@ -44,6 +53,7 @@ function transferVehicle(ownerAccount, id, targetAccount)
     if not checkAccount(targetAccount) then
         return false
     end    
+    error("Not implemented")
 end
 
 function getAccountVehicles(account)
@@ -62,6 +72,21 @@ function getAccountVehicles(account)
     return vehiclesTable
 end
 
+function getAccountVehicle(account, id)
+    if not checkAccount(account) then
+        return false
+    end
+    if type(id) ~= "number" then
+        return false
+    end
+
+    local vehicles = getAccountVehicles(account)
+    if not vehicles[id] then
+        return false
+    end
+    return vehicles[id]
+end
+
 function setAccountVehicles(account, vehicles)
     if not checkAccount(account) then
         return false
@@ -70,17 +95,19 @@ function setAccountVehicles(account, vehicles)
         return false
     end
     local vehiclesJSON = toJSON(vehicles)
-    if not vehiclesJSONle then
+    if not vehiclesJSON then
         return false
     end
     return account:setData("vehicles", vehiclesJSON)
 end
 
 function insertVehicleData(vehicles, data)
-    for i = 1, #vehicles do
-        if not vehicles[i] then
-            vehicles[i] = data
-            return i
+    if #vehicles > 0 then
+        for i = 1, #vehicles do
+            if not vehicles[i] then
+                vehicles[i] = data
+                return i
+            end
         end
     end
     table.insert(vehicles, data)

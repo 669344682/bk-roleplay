@@ -8,11 +8,15 @@
     <export type="client" function="register"/>
 
     <!-- Сервер -->
+    <script type="server" src="server/utils.lua"/>
     <script type="server" src="server/auth.lua"/>
     <script type="server" src="server/inventory.lua"/>
     <script type="server" src="server/player_id.lua"/>
+    <script type="server" src="server/money.lua"/>
 
 
     <export type="server" function="getPlayerInventory"/>
     <export type="server" function="setPlayerInventory"/>
+    <export type="server" function="givePlayerMoney"/>
+    <export type="server" function="takePlayerMoney"/>
 </meta>

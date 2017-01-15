@@ -7,7 +7,7 @@ addEventHandler("bkEnterCarshop", localPlayer, function ()
     startVehiclePreview(vx, vy, vz)
 
     local cx, cy, cz = unpack(currentCarshop.cameraPosition)
-    setCameraMatrix(cx, cy, cz, vx, vy, vz - 0.5)
+    setCameraMatrix(cx, cy, cz, vx, vy, vz)
     exports["bk_hud"]:setVisible(false)
 
     toggleAllControls(false, true)
@@ -24,7 +24,6 @@ addEventHandler("bkExitCarshop", localPlayer, function ()
     setCameraTarget(localPlayer)
 
     toggleAllControls(true, true)
-
     fadeCamera(true)
 end)
 
@@ -38,6 +37,9 @@ function enterCarshop(carshop)
     setTimer(function ()
         exports["bk_dimensions"]:enterPrivateDimension("Carshop")
     end, 1000, 1)
+
+    bindKey("backspace", "down", exitCarshop)
+    bindKey("enter", "down", buyVehicle)
 end
 
 function exitCarshop()
@@ -51,6 +53,24 @@ function exitCarshop()
     setTimer(function ()
         exports["bk_dimensions"]:exitPrivateDimension()
     end, 1000, 1)
+
+    unbindKey("backspace", "down", exitCarshop)
+    unbindKey("enter", "down", buyVehicle)
 end
 
-bindKey("backspace", "down", exitCarshop)
+function buyVehicle()
+    local info = getSelectedVehicleInfo()
+    if info.price < localPlayer:getData("money") then
+        return false
+    end
+    triggerServerEvent("bkCarshopBuyVehicle", resourceRoot, info, currentCarshop)
+end
+
+addEvent("bkCarshopBuyVehicle", true)
+addEventHandler("bkCarshopBuyVehicle", resourceRoot, function (success, errorType)
+    if success then
+        exitCarshop()
+    else
+        outputDebugString("Buy error: " .. tostring(errorType))
+    end
+end)

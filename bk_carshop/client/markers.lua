@@ -4,7 +4,10 @@ local function createCarshopMarker(carshop)
     local blip = createBlip(x, y, z, 55)
     blip.visibleDistance = 250
 
-    addEventHandler("onClientMarkerHit", marker, function ()
+    addEventHandler("onClientMarkerHit", marker, function (player)
+        if player ~= localPlayer or localPlayer.vehicle then
+            return
+        end
         enterCarshop(carshop)
     end)
 end

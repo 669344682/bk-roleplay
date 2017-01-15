@@ -1,13 +1,13 @@
-function enterPrivateDimension(name)
+function enterPrivateDimension(name, ...)
     if localPlayer:getData("activeDimensionName") then
         return false
     end    
-    return triggerServerEvent("bkEnterPrivateDimension", resourceRoot, name)
+    return triggerServerEvent("bkEnterPrivateDimension", resourceRoot, name, ...)
 end
 
-function exitPrivateDimension()
+function exitPrivateDimension(...)
     if not localPlayer:getData("activeDimensionName") then
         return false
     end
-    return triggerServerEvent("bkExitPrivateDimension", resourceRoot)
+    return triggerServerEvent("bkExitPrivateDimension", resourceRoot, ...)
 end
