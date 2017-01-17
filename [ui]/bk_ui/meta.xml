@@ -1,4 +1,6 @@
 <meta>
+	<download_priority_group>999</download_priority_group>
+
 	<!-- Scripts -->
 
 	<script src="utils.lua" 			type="client"/>

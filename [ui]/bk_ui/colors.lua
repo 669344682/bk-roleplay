@@ -13,9 +13,9 @@ local main_dark 	= tocolor(0, 40 * 0.8, 51 * 0.8)
 local secondary 	= tocolor(50, 52, 71)
 
 -- Disabled grey
-local d_green_light = tocolor(110 * 1.2, 110 * 1.2, 110 * 1.2)
-local d_green 		= tocolor(110, 110, 110)
-local d_green_dark 	= tocolor(110 * 0.8, 110 * 0.8, 110 * 0.8)
+local d_grey_light = tocolor(60 * 1.2, 60 * 1.2, 60 * 1.2)
+local d_grey 		= tocolor(60, 60, 60)
+local d_grey_dark 	= tocolor(60 * 0.8, 60 * 0.8, 60 * 0.8)
 
 --[[
 colors.window = {}
@@ -30,8 +30,8 @@ colors.button.border = main_dark
 colors.button.backgroundOut = main
 colors.button.backgroundOver = main_light
 colors.button.text = white
-colors.button.disabled_border = d_green_dark
-colors.button.disabled_background = d_green
+colors.button.disabled_border = d_grey_dark
+colors.button.disabled_background = d_grey
 colors.button.disabled_text = grey
 
 colors.label = {}
@@ -73,8 +73,8 @@ colors.button.border = main_dark
 colors.button.backgroundOut = main
 colors.button.backgroundOver = main_light3
 colors.button.text = white
-colors.button.disabled_border = d_green_dark
-colors.button.disabled_background = d_green
+colors.button.disabled_border = d_grey_dark
+colors.button.disabled_background = d_grey
 colors.button.disabled_text = grey
 
 colors.label = {}

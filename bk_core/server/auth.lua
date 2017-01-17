@@ -1,8 +1,11 @@
 local accountDataToLoad = {
     money = 0,
     xp    = 1,
-    skin  = 0
+    skin  = 0,
+    slots = 3,
 }
+
+local accountDataTo
 
 local accountDataToSave = {
     "money"
@@ -19,12 +22,15 @@ function loadAccountData(player, account)
     player:setData("username", account.name)
 
     -- Загрузка даты
-    for name, defaultValue in pairs(accountDataToLoad) do
+    for name, default in pairs(accountDataToLoad) do
         local value = account:getData(name)
         if not value then
-            value = defaultValue
+            value = default
+            account:setData(name, value)
         else
-            value = tonumber(value)
+            if type(default) == "number" then
+                value = tonumber(value)
+            end
         end
         player:setData(name, value)
     end

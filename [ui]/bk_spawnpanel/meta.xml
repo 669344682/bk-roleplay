@@ -1,0 +1,6 @@
+<meta>
+    <oop>true</oop>
+
+    <script type="server" src="server/main.lua"/>
+    <script type="client" src="client/panel.lua"/>
+</meta>

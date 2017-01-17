@@ -9,6 +9,7 @@ local function updateVehicle()
 
     local info = getSelectedVehicleInfo()
     vehicle.model = info.model
+    vehicle:setColor(255, 255, 255) 
 end
 
 local function showNextVehicle()
@@ -51,6 +52,8 @@ function startVehiclePreview(x, y, z)
 
     bindKey("arrow_r", "down", showNextVehicle)
     bindKey("arrow_l", "down", showPrevVehicle)
+
+    addEventHandler("onClientElementStreamIn", vehicle, updateVehicle)
 end
 
 function stopVehiclePreview()

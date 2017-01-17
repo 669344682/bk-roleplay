@@ -18,6 +18,7 @@
     <export type="server" function="removeVehicle"/>
     <export type="server" function="transferVehicle"/>
     <export type="server" function="getAccountVehicles"/>
+    <export type="server" function="setAccountVehicles"/>
 
     <export type="server" function="spawnVehicle"/>
 

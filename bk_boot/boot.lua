@@ -4,12 +4,14 @@ local bootResources = {
     "bk_dimensions",
     "bk_playerspawn",
     "bk_vehicles",
+    "bk_tuning",
     "bk_carshop",
 
     "bk_ui",
     "bk_hud",
     "bk_alert",
     "bk_loginpanel",
+    "bk_spawnpanel",
 
     "speedometer"
 }
