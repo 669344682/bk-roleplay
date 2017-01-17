@@ -7,5 +7,6 @@
 
     <script type="client" src="client/markers.lua"/>
     <script type="client" src="client/carshop.lua"/>
+    <script type="client" src="client/panel.lua"/>
     <script type="client" src="client/vehicle_preview.lua"/>
 </meta>

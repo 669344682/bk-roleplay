@@ -1,5 +1,8 @@
 -- Порядок запуска ресурсов
 local bootResources = {
+    "bk_shared",
+    "bk_ui",
+    
     "bk_core",
     "bk_dimensions",
     "bk_playerspawn",
@@ -7,13 +10,12 @@ local bootResources = {
     "bk_tuning",
     "bk_carshop",
 
-    "bk_ui",
     "bk_hud",
     "bk_alert",
     "bk_loginpanel",
     "bk_spawnpanel",
 
-    "speedometer"
+    "bk_speedo"
 }
 
 local function processResourceByName(name, action)

@@ -1,0 +1,14 @@
+<meta>
+    <download_priority_group>1000</download_priority_group>
+
+    <oop>true</oop>
+
+    <script type="shared" src="components.lua"/>
+    <export type="shared" function="getComponentsList"/>
+    <export type="shared" function="getVehicleComponents"/>
+
+    <script type="shared" src="vehicles.lua"/>
+    <export type="shared" function="getVehiclePrices"/>
+    <export type="shared" function="getVehiclePrice"/>
+    <export type="shared" function="getVehicleRealName"/>
+</meta>

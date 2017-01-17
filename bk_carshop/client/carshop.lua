@@ -7,13 +7,14 @@ addEventHandler("bkEnterCarshop", localPlayer, function ()
     startVehiclePreview(vx, vy, vz)
 
     local cx, cy, cz = unpack(currentCarshop.cameraPosition)
-    setCameraMatrix(cx, cy, cz, vx, vy, vz)
+    setCameraMatrix(cx, cy, cz, vx, vy, vz - 0.5)
     exports["bk_hud"]:setVisible(false)
 
     toggleAllControls(false, true)
     localPlayer.frozen = true
 
     fadeCamera(true)
+    setPanelVisible(true)
 end)
 
 addEvent("bkExitCarshop", true)
@@ -48,6 +49,7 @@ function exitCarshop()
     end
     isActive = false
 
+    setPanelVisible(false)
     fadeCamera(false)
     localPlayer.frozen = false
     setTimer(function ()

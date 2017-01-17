@@ -10,9 +10,10 @@ local function updateVehicle()
     local info = getSelectedVehicleInfo()
     vehicle.model = info.model
     vehicle:setColor(255, 255, 255) 
+    updatePanel(info)
 end
 
-local function showNextVehicle()
+function showNextVehicle()
     selectedVehicle = selectedVehicle + 1
     if selectedVehicle > #vehiclesList then
         selectedVehicle = 1
@@ -21,7 +22,7 @@ local function showNextVehicle()
     updateVehicle()
 end
 
-local function showPrevVehicle()
+function showPrevVehicle()
     selectedVehicle = selectedVehicle - 1
     if selectedVehicle < 1 then
         selectedVehicle = #vehiclesList
@@ -39,9 +40,12 @@ function startVehiclePreview(x, y, z)
     vehicle.dimension = localPlayer.dimension
 
     for name, model in pairs(exports["bk_vehicles"]:getVehiclesList()) do
+        local price = exports.bk_shared:getVehiclePrice(name) or 0
+        local realName = exports.bk_shared:getVehicleRealName(name) or ""
         table.insert(vehiclesList, { 
-            price = 0, 
+            price = price, 
             level = 1,
+            realName = realName,
             name = name,
             model = model 
         })
