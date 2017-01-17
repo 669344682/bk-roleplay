@@ -1,4 +1,4 @@
-local isVisible = false
+local isHUDVisible = false
 
 function setVisible(visible)
     setPlayerHudComponentVisible("all", false)
@@ -8,9 +8,13 @@ function setVisible(visible)
 
     showChat(visible)
 
-    isVisible = visible
+    isHUDVisible = visible
 end
 
 function isVisible()
-    return isVisible
+    return not not isHUDVisible
 end
+
+addEventHandler("onClientResourceStart", resourceRoot, function ()
+    setVisible(true)
+end)

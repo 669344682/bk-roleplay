@@ -1,7 +1,0 @@
-<meta>
-	<info name="speedocover" author="Viking" version="1.0" type="misc"/>
-	<script src="speedo.lua" type="client" />
-
-	<file src="disc.png" />
-	<file src="needle.png" />
-</meta>
