@@ -5,3 +5,7 @@ addEventHandler("onClientPlayerSpawn", localPlayer, function ()
 
     toggleAllControls(true, true)
 end)
+
+addEventHandler("onClientPlayerWasted", localPlayer, function ()
+    fadeCamera(false, 2)
+end)
