@@ -72,7 +72,7 @@ function setVisible(visible)
 end
 
 addEventHandler("onClientResourceStart", resourceRoot, function ()
-    panel.window = UI:createWindow(0, 0, 0, 0, canvas, "Мои автомобили", true)
+    panel.window = UI:createWindow(-1000, 0, 0, 0, canvas, "Мои автомобили", true)
     panel.buySlot = UI:createButton(40, 40, PANEL_WIDTH - 80, 35, panel.window, "Купить слот")
     UI:setVisible(panel.window, false)
 end)

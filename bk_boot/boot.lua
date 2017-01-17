@@ -9,6 +9,11 @@ local bootResources = {
     "bk_vehicles",
     "bk_tuning",
     "bk_carshop",
+    "bk_partshop",
+    "bk_driftpoints",
+    "bk_garagetuning",
+    "bk_garagedoors",
+    "bk_safezones",
 
     "bk_hud",
     "bk_alert",

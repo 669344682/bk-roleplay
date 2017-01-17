@@ -211,6 +211,8 @@ function getCheckboxState(checkbox)
 	return false
 end
 
+
+
 function createEdit(...)
 	return createControlElement("edit", ...)
 end
@@ -237,4 +239,15 @@ function setColor(element, color)
 		end
 	end
 	return false
+end
+
+function createImage(...)
+	return createControlElement("image", ...)
+end
+
+function setImageTexture(image, texture)
+	local element = getControlElementByID(image)
+	if element then
+		element.texture = texture
+	end
 end

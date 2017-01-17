@@ -1,3 +1,18 @@
 <meta>
+    <oop>true</oop>
 
+    <script type="client" src="client/utils.lua"/>
+    <script type="client" src="client/panel.lua"/>
+    <script type="client" src="client/markers.lua"/>
+
+    <file src="assets/images/fender_front_plastic.png"/>
+    <file src="assets/images/fender_front_vfts.png"/>
+    <file src="assets/images/fender_rear_plastic.png"/>
+    <file src="assets/images/fender_rear_vfts.png"/>
+    <file src="assets/images/guba_vfts.png"/>
+    <file src="assets/images/guba_vihur.png"/>
+    <file src="assets/images/reshetka.png"/>
+    <file src="assets/images/spoiler_avr.png"/>
+    <file src="assets/images/spoiler_sniper.png"/>
+    <file src="assets/images/spoiler_vfts.png"/>
 </meta>
